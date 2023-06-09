@@ -1,0 +1,2 @@
+- decide on the macro topics, create buttons for each
+- fix domain
