@@ -5,7 +5,6 @@ import { PageLayout } from "~/components/layout";
 import { signIn, signOut, useSession } from "next-auth/react";
 
 const Home: NextPage = () => {
-  const hello = api.example.hello.useQuery({ text: "from tRPC" });
 
   return (
     <PageLayout>
@@ -34,9 +33,6 @@ const Home: NextPage = () => {
           <h3 className="whitespace-normal text-2xl font-bold">Criptomoedas</h3>
         </Link>
       </div>
-      <p className="text-2xl text-white">
-        {hello.data ? hello.data.greeting : "Loading tRPC query..."}
-      </p>
       {/* <AuthShowcase /> */}
     </PageLayout>
   );
