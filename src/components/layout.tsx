@@ -6,29 +6,24 @@ import { signIn, signOut, useSession } from "next-auth/react";
 const LoginComponent = () => {
   const { data: sessionData } = useSession();
 
-  if (sessionData){
-    return <div>LOGGED IN</div>
+  if (sessionData) {
+    return (
+      <button
+        className="flex h-8 w-28 cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-slate-600 to-slate-500 px-4 py-2 text-sm font-medium text-white transition-opacity duration-300 hover:from-gray-500 hover:to-gray-600"
+        onClick={sessionData ? () => void signOut() : () => void signIn()}
+      >
+        Logout
+      </button>
+    );
   }
 
   return (
-    <ul className="hidden items-center gap-5 sm:flex">
-      <li>
-        <Link
-          className="flex text-xl text-gray-400 hover:text-white"
-          href="/login"
-        >
-          Login
-        </Link>
-      </li>
-      <li>
-        <Link
-          className="flex text-xl text-gray-400 hover:text-white"
-          href="/login"
-        >
-          Signup
-        </Link>
-      </li>
-    </ul>
+    <Link
+      className="flex h-8 w-28 cursor-pointer items-center justify-center rounded-full bg-gradient-to-r from-yellow-600 to-yellow-500 px-4 py-2 text-sm font-medium text-white transition-opacity duration-300 hover:from-amber-500 hover:to-amber-600"
+      href="/login"
+    >
+      Login
+    </Link>
   );
 };
 
