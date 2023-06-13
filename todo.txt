@@ -1,5 +1,5 @@
 - decide on the macro topics, create buttons for each
 
-- add navbar
+- fix navbar spacing. Items should be more in the middle
 
-- implement login/auth
+- Get a better icon
