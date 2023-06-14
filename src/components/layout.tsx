@@ -51,11 +51,7 @@ export const PageLayout = (props: PropsWithChildren) => {
   return (
     <>
       <Navbar />
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-b from-indigo-950 to-indigo-800">
-        <div className="container flex flex-col items-center justify-center gap-12 px-4 py-16 ">
           {props.children}
-        </div>
-      </main>
     </>
   );
 };

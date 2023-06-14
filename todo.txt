@@ -1,5 +1,3 @@
 - decide on the macro topics, create buttons for each
 
-- fix navbar spacing. Items should be more in the middle
-
 - Get a better icon
