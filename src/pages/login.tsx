@@ -20,7 +20,7 @@ export default function SignIn({}: InferGetServerSidePropsType<
             onClick={() => void signIn("google")}
           >
             <Image
-              src={"/Google.svg"}
+              src={"/google.svg"}
               alt="Google"
               className="h-6 w-6 fill-white"
               width={0}
