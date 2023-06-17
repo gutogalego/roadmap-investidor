@@ -13,21 +13,23 @@ export default function SignIn({}: InferGetServerSidePropsType<
 >) {
   return (
     <PageLayout>
-      <div key={"Google"}>
-        <button
-          className="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
-          onClick={() => void signIn("google")}
-        >
-          <Image
-            src={"/Google.svg"}
-            alt="Google"
-            className="h-6 w-6 fill-white"
-            width={0}
-            height={0}
-          />
-          Fazer login com o Google
-        </button>
-      </div>
+      <main className="flex  items-center flex-col justify-center gap-12 px-4 py-16">
+        <div key={"Google"}>
+          <button
+            className="inline-flex h-10 w-full items-center justify-center gap-2 rounded border border-slate-300 bg-white p-2 text-sm font-medium text-black outline-none focus:ring-2 focus:ring-[#333] focus:ring-offset-1 disabled:cursor-not-allowed disabled:opacity-60"
+            onClick={() => void signIn("google")}
+          >
+            <Image
+              src={"/Google.svg"}
+              alt="Google"
+              className="h-6 w-6 fill-white"
+              width={0}
+              height={0}
+            />
+            Fazer login com o Google
+          </button>
+        </div>
+      </main>
     </PageLayout>
   );
 }

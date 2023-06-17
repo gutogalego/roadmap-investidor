@@ -17,7 +17,7 @@ const Home: NextPage = () => {
               className="flex max-w-xs flex-col items-center gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
               href="/renda-fixa"
             >
-              <h3 className="text-2xl font-bold ">Renda Fixa</h3>{" "}
+              <h3 className="text-2xl font-bold ">Renda Fixa</h3>
             </Link>
 
             <Link
