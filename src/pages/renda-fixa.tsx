@@ -9,39 +9,25 @@ type modalProps = {
   toggle: () => void;
 };
 
-
-
 //use state enabled/disabled triggered by renda fica button
 const Modal = (props: modalProps) => {
-  return (
-    <>
-      {props.isOpen && (
-        <div className="modal-overlay" onClick={props.toggle}>
-          <div onClick={(e) => e.stopPropagation()} className="modal-box">
-            {props.children}
-          </div>
-        </div>
-      )}
-    </>
+  const modal = (
+    <div className="modal-overlay" onClick={props.toggle}>
+      <div onClick={(e) => e.stopPropagation()} className="modal-box">
+        {props.children}
+      </div>
+    </div>
   );
+
+  return <>{props.isOpen && modal}</>;
 };
 
-const useModal = () => {
+const Home: NextPage = () => {
   const [isOpen, setisOpen] = useState(false);
 
   const toggle = () => {
     setisOpen(!isOpen);
   };
-
-  return {
-    isOpen,
-    toggle,
-  };
-};
-
-const Home: NextPage = () => {
-
-  const { isOpen, toggle } = useModal();
 
   return (
     <PageLayout>
@@ -63,7 +49,7 @@ const Home: NextPage = () => {
             <h5 className="text-xl font-bold ">Renda Fixa</h5>
           </button>
 
-          <Modal isOpen={isOpen} toggle={useModal}>
+          <Modal isOpen={isOpen} toggle={toggle}>
             <div>Yaay!!! Our Modal is rendered Properly.</div>
           </Modal>
         </div>
