@@ -51,7 +51,7 @@ export const PageLayout = (props: PropsWithChildren) => {
   return (
     <>
       <Navbar />
-          {props.children}
+      {props.children}
     </>
   );
 };
