@@ -7,13 +7,17 @@ type TopicProgressButtonProps = {
   topicId: string;
 }; 
 
-const handleUpdateResourceProgress = (progress: ResourceProgressType) => {
-    console.log(progress)
-    return <></>
-  };
+
 
 export const TopicProgressButton = (props: TopicProgressButtonProps) => {
+    const { topicId } = props;
     const [showChangeStatus, setShowChangeStatus] = useState(false);
+
+    const handleUpdateResourceProgress = (progress: ResourceProgressType) => {
+        console.log(progress)
+        setShowChangeStatus(false)
+        return <></>
+      };
     
 
   return (
@@ -26,7 +30,7 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
       </span>
       <button
         className="inline-flex cursor-pointer items-center rounded-br-md rounded-tr-md border-l border-l-gray-300 bg-gray-100 p-1 px-2 text-sm text-black hover:bg-gray-200"
-        onClick={() => setShowChangeStatus(true)}
+        onClick={() => setShowChangeStatus(!showChangeStatus)}
       >
         <span className="mr-0.5">Update Status</span>{" "}
         <Image
@@ -39,7 +43,7 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
       </button>
       {showChangeStatus && (
         <div
-          className="absolute right-0 top-full mt-1 flex min-w-[160px] flex-col divide-y rounded-md border border-gray-200 bg-white shadow-md [&>button:first-child]:rounded-t-md [&>button:last-child]:rounded-b-md"
+          className="absolute right-0 top-full mt-1 flex min-w-[120px] flex-col divide-y rounded-md border border-gray-200 bg-white shadow-md [&>button:first-child]:rounded-t-md [&>button:last-child]:rounded-b-md"
         >
 
             <button
@@ -52,7 +56,6 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
                 ></span>
                 Done
               </span>
-              <span className="text-xs text-gray-500">D</span>
             </button>
 
 
@@ -66,8 +69,6 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
                 ></span>
                 In Progress
               </span>
-
-              <span className="text-xs text-gray-500">L</span>
             </button>
 
 
@@ -81,7 +82,6 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
                 ></span>
                 Reset
               </span>
-              <span className="text-xs text-gray-500">R</span>
             </button>
 
 
@@ -95,7 +95,6 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
                 ></span>
                 Skip
               </span>
-              <span className="text-xs text-gray-500">S</span>
             </button>
 
         </div>

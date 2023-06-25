@@ -38,7 +38,7 @@ const Modal = (props: modalProps) => {
         </button>
 
         {/*comment. block below is supposed to be pending button*/}
-        <TopicProgressButton topicId={"47813"}/>
+        <TopicProgressButton topicId={"47813"} />
         {/*comment. block above is supposed to be pending button*/}
 
         {props.children}
