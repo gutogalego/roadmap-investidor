@@ -8,7 +8,9 @@
 
 - do bento boxes for topics
 
+topic_id is topicId + userId
+
 - SEEN topic flow:
     - Once a user marks the topic as "read", it will create a "Post" object containing topic_id(It'll be related to the html element or something), and Status. Copy logic on chirp.
     - when user enters the page, it'll get all posts, and display them as seen/not seen. The default value is 'not seen'.
-    - anonymous users will only mark it locally. 
+    - anonymous users will be redirected to login. 
