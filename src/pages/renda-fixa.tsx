@@ -1,9 +1,11 @@
-import { type NextPage } from "next";
+import { type GetStaticProps, type NextPage } from "next";
 import { api } from "~/utils/api";
 import { PageLayout } from "~/components/layout";
 import { TopicProgressButton } from "~/components/TopicProgressButton";
 import { type ReactNode, useState } from "react";
 import Image from "next/image";
+import { generateSsgHelper } from "~/server/helpers/ssgHelper";
+import { useSession } from "next-auth/react";
 
 type modalProps = {
   children?: ReactNode;
@@ -50,6 +52,15 @@ const Modal = (props: modalProps) => {
 };
 
 const Home: NextPage = () => {
+  const { data: sessionData } = useSession();
+
+  if (sessionData) {
+    const { data: userTopicData, isLoading } = api.userTopic.getTopicsByUserID.useQuery({
+      userId: sessionData.user.id,
+    });
+    console.log(userTopicData)
+  }
+
   const [isOpen, setisOpen] = useState(false);
 
   const toggle = () => {
