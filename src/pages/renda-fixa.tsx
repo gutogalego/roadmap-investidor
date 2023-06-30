@@ -6,9 +6,23 @@ import { type ReactNode, useState } from "react";
 import Image from "next/image";
 import { generateSsgHelper } from "~/server/helpers/ssgHelper";
 import { useSession } from "next-auth/react";
+import fixtures from "~/data/renda-fixa.json";
+import React, { Fragment } from "react";
+
+type topic = {
+  id: string;
+  title: string;
+  body: string;
+};
 
 type modalProps = {
   children?: ReactNode;
+  isOpen: boolean;
+  toggle: () => void;
+  topicId: string;
+};
+
+type topicsProps = {
   isOpen: boolean;
   toggle: () => void;
 };
@@ -40,7 +54,7 @@ const Modal = (props: modalProps) => {
         </button>
 
         {/*comment. block below is supposed to be pending button*/}
-        <TopicProgressButton topicId={"47813"} />
+        <TopicProgressButton topicId={props.topicId} />
         {/*comment. block above is supposed to be pending button*/}
 
         {props.children}
@@ -51,17 +65,42 @@ const Modal = (props: modalProps) => {
   return <>{props.isOpen && modal}</>;
 };
 
-const Home: NextPage = () => {
-  const { data: sessionData } = useSession();
+const Topics = (props: topicsProps) => {
+  const topics = [];
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+  const data: topic[] = fixtures.data;
 
-  if (sessionData) {
-    const { data: userTopicData, isLoading } = api.userTopic.getTopicsByUserID.useQuery({
-      userId: sessionData.user.id,
-    });
-    console.log(userTopicData)
+  for (const topic of data) {
+    const topicId = topic.id;
+    topics.push(
+      <>
+        <button
+          className="flex h-20 max-w-xs flex-col items-center gap-4 rounded-xl bg-red-200 px-5 py-7 text-black hover:bg-blue-200"
+          type="button"
+          onClick={props.toggle}
+        >
+          <h5 className="text-xl font-bold ">{topic.title}</h5>
+        </button>
+        <Modal isOpen={props.isOpen} toggle={props.toggle} topicId={topicId}>
+          <div>O que é a selic?</div>
+        </Modal>
+      </>
+    );
   }
 
+  return <>{...topics}</>;
+};
+
+const Home: NextPage = () => {
+  const { data: sessionData } = useSession();
   const [isOpen, setisOpen] = useState(false);
+
+  const { data: userTopicData, isLoading } =
+    api.userTopic.getTopicsByUserID.useQuery({
+      userId: sessionData ? sessionData.user.id : "no_user",
+    });
+
+  console.log(userTopicData);
 
   const toggle = () => {
     setisOpen(!isOpen);
@@ -84,17 +123,7 @@ const Home: NextPage = () => {
           </div>
         </div>
         <div className="grid h-screen grid-cols-12 bg-gray-50 pt-4 sm:pt-12">
-          <button
-            className="col-span-1 flex h-20 max-w-xs flex-col items-center gap-4 rounded-xl bg-red-200 px-5 py-7 text-black hover:bg-blue-200"
-            type="button"
-            onClick={toggle}
-          >
-            <h5 className="text-xl font-bold ">Selic</h5>
-          </button>
-
-          <Modal isOpen={isOpen} toggle={toggle}>
-            <div>O que é a selic?</div>
-          </Modal>
+          <Topics isOpen={isOpen} toggle={toggle} />
         </div>
       </main>
     </PageLayout>
