@@ -8,6 +8,7 @@ type ResourceProgressType = "done" | "learning" | "pending" | "skipped";
 
 type TopicProgressButtonProps = {
   topicId: string;
+  progress?: ResourceProgressType;
 };
 
 export const TopicProgressButton = (props: TopicProgressButtonProps) => {
@@ -20,7 +21,7 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
 
   const handleUpdateResourceProgress = (progress: ResourceProgressType) => {
     console.log(progress);
-    mutate({ topicId: "431243243242", userId: sessionData?.user.id || "no_user"})
+    mutate({ topicId: topicId, userId: sessionData?.user.id || "no_user"})
     setShowChangeStatus(false);
     return <></>;
   };
