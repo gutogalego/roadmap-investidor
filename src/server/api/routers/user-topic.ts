@@ -3,7 +3,7 @@ import { createTRPCRouter, publicProcedure } from "~/server/api/trpc";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { TRPCError } from "@trpc/server";
 
-import type { UserTopic } from "@prisma/client";
+import type { UserTopic, Status } from "@prisma/client";
 
 export const userTopicRouter = createTRPCRouter({
 
@@ -24,16 +24,15 @@ export const userTopicRouter = createTRPCRouter({
     ),
 
   create: publicProcedure
-    .input(z.object({ topicId: z.string().min(1), userId: z.string().min(1) }))
+    .input(z.object({ topicId: z.string().min(1), userId: z.string().min(1), status: z.enum(['DONE', 'SKIP', 'IN_PROGRESS', 'PENDING']) }))
     .mutation(async ({ ctx, input }) => {
-      const userTopicId = `${input.topicId}#${input.userId}`;
       const userTopic = await ctx.prisma.userTopic.upsert({
-        where: { id: userTopicId },
-        update: { status: "upserted" },
+        where: { topicId_userId: { topicId: input.topicId ,userId: input.userId} },
+        update: { status: input.status },
         create: {
-          id: userTopicId,
+          topicId: input.topicId,
           userId: input.userId,
-          status: "test",
+          status: input.status,
         },
       });
 

@@ -1,14 +1,8 @@
-import { type GetStaticProps, type NextPage } from "next";
-import { api } from "~/utils/api";
-import { PageLayout } from "~/components/layout";
 import { TopicProgressButton } from "~/components/TopicProgressButton";
 import { type ReactNode, useState } from "react";
 import Image from "next/image";
-import { generateSsgHelper } from "~/server/helpers/ssgHelper";
-import { useSession } from "next-auth/react";
-
-import React, { Fragment } from "react";
-import { type UserTopic } from "@prisma/client";
+import React from "react";
+import { type UserTopic, type Status } from "@prisma/client";
 
 type topic = {
   id: string;
@@ -21,6 +15,7 @@ type modalProps = {
   isOpen: boolean;
   toggle: () => void;
   topicId: string;
+  progress: "PENDING" | "DONE" | "IN_PROGRESS" | "SKIP";
 };
 
 type topicsProps = {
@@ -32,7 +27,21 @@ type topicsProps = {
 
 type topicProps = {
   topic: topic;
+  progress: "PENDING" | "DONE" | "IN_PROGRESS" | "SKIP";
 };
+
+const getTopicProgress = (topicId: string, userTopics?: UserTopic[]): "PENDING" | "DONE" | "IN_PROGRESS" | "SKIP" => {
+    
+    if(userTopics){
+        for(const userTopic of userTopics){
+            if (topicId == userTopic.topicId){
+                return userTopic.status
+            }
+        }
+    }
+    
+    return "PENDING";
+}
 
 //use state enabled/disabled triggered by renda fica button
 const Modal = (props: modalProps) => {
@@ -59,11 +68,7 @@ const Modal = (props: modalProps) => {
             height={0}
           />
         </button>
-
-        {/*comment. block below is supposed to be pending button*/}
-        <TopicProgressButton topicId={props.topicId} />
-        {/*comment. block above is supposed to be pending button*/}
-
+        <TopicProgressButton topicId={props.topicId} progress={props.progress}/>
         {props.children}
       </div>
     </div>
@@ -88,7 +93,7 @@ const Topic = (props: topicProps) => {
       >
         <h5 className="text-xl font-bold ">{topic.title}</h5>
       </button>
-      <Modal isOpen={isOpen} toggle={toggle} topicId={topic.id}>
+      <Modal isOpen={isOpen} toggle={toggle} topicId={topic.id} progress={props.progress}>
         <div>{topic.body}</div>
       </Modal>
     </>
@@ -99,8 +104,9 @@ export const Topics = (props: topicsProps) => {
   const topics = [];
 
   for (const topic of props.data) {
-    const topicId = topic.id;
-    topics.push(<Topic topic={topic} />);
+    const topicProgress = getTopicProgress(topic.id, props.userTopics)
+
+    topics.push(<Topic topic={topic} progress={topicProgress}/>);
   }
 
   return <>{...topics}</>;

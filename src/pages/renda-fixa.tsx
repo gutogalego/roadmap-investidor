@@ -1,10 +1,7 @@
-import { type GetStaticProps, type NextPage } from "next";
+import {  type NextPage } from "next";
 import { api } from "~/utils/api";
 import { PageLayout } from "~/components/layout";
-import { TopicProgressButton } from "~/components/TopicProgressButton";
-import { type ReactNode, useState } from "react";
-import Image from "next/image";
-import { generateSsgHelper } from "~/server/helpers/ssgHelper";
+import {  useState } from "react";
 import { useSession } from "next-auth/react";
 import fixtures from "~/data/renda-fixa.json";
 import React from "react";

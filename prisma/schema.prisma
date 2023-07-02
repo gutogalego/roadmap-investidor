@@ -54,10 +54,19 @@ model VerificationToken {
     @@unique([identifier, token])
 }
 
-model UserTopic {
-    id     String @id
-    userId String
-    status String
+enum Status {
+    PENDING
+    DONE
+    IN_PROGRESS
+    SKIP
+}
 
+model UserTopic {
+    
+    topicId String
+    userId  String
+    status  Status
+
+    @@id([topicId, userId])
     @@index([userId])
 }
