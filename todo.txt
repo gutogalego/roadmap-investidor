@@ -2,17 +2,12 @@
 
 - Get a better icon
 
-- add topics and popup right side and stuff
-
 - vercel deal with static images
 
 - do bento boxes for topics
 
-- fix publicProcedure status.
-- fix status on DB so that it's strongly typed
-
 
 - SEEN topic flow:
-    - Once a user marks the topic as "read", it will create a "Post" object containing topic_id(It'll be related to the html element or something), and Status. Copy logic on chirp.
-    - when user enters the page, it'll get all posts, and display them as seen/not seen. The default value is 'not seen'.
     - anonymous users will be redirected to login. 
+    - fix color and display in pt/br
+    - hot reload status or page or something
