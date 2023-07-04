@@ -1,10 +1,8 @@
 import Image from "next/image";
 import { useState } from "react";
 import { api } from "~/utils/api";
-import { toast } from "react-hot-toast";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { type Status } from "@prisma/client";
-
+import { useSession } from "next-auth/react";
+import { Status } from "@prisma/client";
 
 type TopicProgressButtonProps = {
   topicId: string;
@@ -19,9 +17,13 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
 
   const { mutate, isLoading: isPosting } = api.userTopic.create.useMutation({});
 
-  const handleUpdateResourceProgress = (progress: "PENDING" | "DONE" | "IN_PROGRESS" | "SKIP") => {
+  const handleUpdateResourceProgress = (progress: Status) => {
     console.log(progress);
-    mutate({ topicId: topicId, userId: sessionData?.user.id || "no_user", status: progress})
+    mutate({
+      topicId: topicId,
+      userId: sessionData?.user.id || "no_user",
+      status: progress,
+    });
     setShowChangeStatus(false);
     return <></>;
   };
@@ -51,7 +53,7 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
         <div className="absolute right-0 top-full mt-1 flex min-w-[120px] flex-col divide-y rounded-md border border-gray-200 bg-white shadow-md [&>button:first-child]:rounded-t-md [&>button:last-child]:rounded-b-md">
           <button
             className="inline-flex justify-between px-3 py-1.5 text-left text-sm text-gray-800 hover:bg-gray-100"
-            onClick={() => handleUpdateResourceProgress('DONE')}
+            onClick={() => handleUpdateResourceProgress(Status.DONE)}
           >
             <span>
               <span
@@ -63,7 +65,7 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
 
           <button
             className="inline-flex justify-between px-3 py-1.5 text-left text-sm text-gray-800 hover:bg-gray-100"
-            onClick={() => handleUpdateResourceProgress('IN_PROGRESS')}
+            onClick={() => handleUpdateResourceProgress(Status.IN_PROGRESS)}
           >
             <span>
               <span
@@ -75,7 +77,7 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
 
           <button
             className="inline-flex justify-between px-3 py-1.5 text-left text-sm text-gray-800 hover:bg-gray-100"
-            onClick={() => handleUpdateResourceProgress('PENDING')}
+            onClick={() => handleUpdateResourceProgress(Status.PENDING)}
           >
             <span>
               <span
@@ -87,7 +89,7 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
 
           <button
             className="inline-flex justify-between px-3 py-1.5 text-left text-sm text-gray-800 hover:bg-gray-100"
-            onClick={() => handleUpdateResourceProgress('SKIP')}
+            onClick={() => handleUpdateResourceProgress(Status.SKIP)}
           >
             <span>
               <span

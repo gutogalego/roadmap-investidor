@@ -15,7 +15,7 @@ type modalProps = {
   isOpen: boolean;
   toggle: () => void;
   topicId: string;
-  progress: "PENDING" | "DONE" | "IN_PROGRESS" | "SKIP";
+  progress: Status;
 };
 
 type topicsProps = {
@@ -27,10 +27,10 @@ type topicsProps = {
 
 type topicProps = {
   topic: topic;
-  progress: "PENDING" | "DONE" | "IN_PROGRESS" | "SKIP";
+  progress: Status;
 };
 
-const getTopicProgress = (topicId: string, userTopics?: UserTopic[]): "PENDING" | "DONE" | "IN_PROGRESS" | "SKIP" => {
+const getTopicProgress = (topicId: string, userTopics?: UserTopic[]): Status => {
     
     if(userTopics){
         for(const userTopic of userTopics){
