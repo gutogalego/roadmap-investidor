@@ -62,7 +62,6 @@ enum Status {
 }
 
 model UserTopic {
-    
     topicId String
     userId  String
     status  Status
