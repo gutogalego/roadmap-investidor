@@ -10,7 +10,7 @@ const Home: NextPage = () => {
           <h1 className="text-center text-5xl font-extrabold tracking-tight text-white sm:text-[5rem]">
             Roadmap para <span className="text-indigo-300">INVESTIDORES</span>
           </h1>
-          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:gap-4">
+          <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 md:gap-4">
             <Link
               className="flex max-w-xs flex-col items-center gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
               href="/renda-fixa"
