@@ -30,6 +30,13 @@ type topicProps = {
   progress: Status;
 };
 
+const topicColorClasses: Record<Status, string> = {
+  DONE: "bg-gray-400 line-through",
+  IN_PROGRESS: "bg-purple-300 underline",
+  PENDING: "bg-yellow-500 hover:bg-yellow-400",
+  SKIP: "bg-teal-800 line-through",
+};
+
 const getTopicProgress = (
   topicId: string,
   userTopics?: UserTopic[]
@@ -49,7 +56,7 @@ const getTopicProgress = (
 const Modal = (props: modalProps) => {
   const modal = (
     <div
-      className="absolute top-0 h-full w-full items-center bg-slate-900 bg-opacity-70"
+      className="fixed top-0 left-0 h-full w-full items-center bg-slate-900 bg-opacity-70"
       onClick={props.toggle}
     >
       <div
@@ -82,17 +89,20 @@ const Modal = (props: modalProps) => {
   return <>{props.isOpen && modal}</>;
 };
 
+
+
 const Topic = (props: topicProps) => {
   const topic = props.topic;
   const [isOpen, setisOpen] = useState(false);
   const toggle = () => {
     setisOpen(!isOpen);
   };
+  console.log("TOPIC PROGRESS: ", props.progress)
 
   return (
     <div className="h-20 w-full ">
       <button
-        className="flex h-20 w-full max-w-xs flex-col items-center gap-4 rounded-xl bg-yellow-300 py-7 text-black hover:bg-yellow-400"
+        className={`flex h-20 w-full max-w-xs flex-col items-center gap-4 rounded-xl ${topicColorClasses[props.progress]} py-7 text-black `}
         type="button"
         onClick={toggle}
       >
