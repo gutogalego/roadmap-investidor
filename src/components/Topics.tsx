@@ -90,9 +90,9 @@ const Topic = (props: topicProps) => {
   };
 
   return (
-    <>
+    <div className="h-20 w-full ">
       <button
-        className="flex h-20 max-w-xs flex-col items-center gap-4 rounded-xl bg-red-200 px-5 py-7 text-black hover:bg-blue-200"
+        className="flex h-20 w-full max-w-xs flex-col items-center gap-4 rounded-xl bg-yellow-300 py-7 text-black hover:bg-yellow-400"
         type="button"
         onClick={toggle}
       >
@@ -106,7 +106,7 @@ const Topic = (props: topicProps) => {
       >
         <div>{topic.body}</div>
       </Modal>
-    </>
+    </div>
   );
 };
 

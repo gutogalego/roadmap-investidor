@@ -1,24 +1,27 @@
-import {  type NextPage } from "next";
+import { type NextPage } from "next";
 import { api } from "~/utils/api";
 import { PageLayout } from "~/components/layout";
-import {  useState } from "react";
+import { useState } from "react";
 import { useSession } from "next-auth/react";
 import fixtures from "~/data/renda-fixa.json";
 import React from "react";
 import { Topics } from "~/components/Topics";
+import { type UserTopic, Status } from "@prisma/client";
+import { type Session } from "next-auth";
 
-
+const getUserTopics = (sessionData: Session) => {
+  const { data: userTopicsData, isLoading } =
+    api.userTopic.getTopicsByUserID.useQuery({
+      userId: sessionData ? sessionData.user.id : "no_user",
+    });
+  return userTopicsData;
+};
 
 const Home: NextPage = () => {
   const { data: sessionData } = useSession();
   const [isOpen, setisOpen] = useState(false);
 
-  const { data: userTopicsData, isLoading } =
-    api.userTopic.getTopicsByUserID.useQuery({
-      userId: sessionData ? sessionData.user.id : "no_user",
-    });
-
-  console.log(userTopicsData);
+  const userTopicsData = sessionData ? getUserTopics(sessionData) : undefined;
 
   const toggle = () => {
     setisOpen(!isOpen);
@@ -40,8 +43,13 @@ const Home: NextPage = () => {
             </div>
           </div>
         </div>
-        <div className="grid h-screen grid-cols-12 bg-gray-50 pt-4 sm:pt-12">
-          <Topics isOpen={isOpen} toggle={toggle} userTopics={userTopicsData} data={fixtures.data}/>
+        <div className="grid h-screen grid-cols-6 content-start gap-4 bg-gray-50 px-5 pt-4 sm:pt-12">
+          <Topics
+            isOpen={isOpen}
+            toggle={toggle}
+            userTopics={userTopicsData}
+            data={fixtures.data}
+          />
         </div>
       </main>
     </PageLayout>

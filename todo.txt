@@ -4,7 +4,9 @@
 
 - vercel deal with static images
 
-- do bento boxes for topics
+- do bento boxes for topics?
+
+- track progress
 
 
 - SEEN topic flow:

@@ -9,6 +9,13 @@ type TopicProgressButtonProps = {
   progress: Status;
 };
 
+const statusColors: Record<Status, string> = {
+  DONE: "bg-green-500",
+  IN_PROGRESS: "bg-yellow-500",
+  PENDING: "bg-gray-300",
+  SKIP: "bg-black",
+};
+
 export const translateProgress = (progress: Status) => {
   const translated = {
     DONE: "Completo",
@@ -17,13 +24,6 @@ export const translateProgress = (progress: Status) => {
     SKIP: "Pular",
   };
   return translated[progress];
-};
-
-const statusColors: Record<Status, string> = {
-  DONE: "bg-green-500",
-  IN_PROGRESS: "bg-yellow-500",
-  PENDING: "bg-gray-300",
-  SKIP: "bg-black",
 };
 
 export const TopicProgressButton = (props: TopicProgressButtonProps) => {
@@ -35,14 +35,14 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
   const { mutate, isLoading: isPosting } = api.userTopic.create.useMutation({});
 
   const handleUpdateResourceProgress = (progress: Status) => {
-    console.log(progress);
-    mutate({
-      topicId: topicId,
-      userId: sessionData?.user.id || "no_user",
-      status: progress,
-    });
+    if (sessionData) {
+      mutate({
+        topicId: topicId,
+        userId: sessionData.user.id,
+        status: progress,
+      });
+    }
     setShowChangeStatus(false);
-    return <></>;
   };
 
   return (
