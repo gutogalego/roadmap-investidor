@@ -6,13 +6,12 @@ import { useSession } from "next-auth/react";
 import fixtures from "~/data/renda-fixa.json";
 import React from "react";
 import { Topics } from "~/components/Topics";
-import { type UserTopic, Status } from "@prisma/client";
 import { type Session } from "next-auth";
 
-const getUserTopics = (sessionData: Session | null) => {
+const getUserTopics = (sessionData: Session) => {
   const { data: userTopicsData, isLoading } =
     api.userTopic.getTopicsByUserID.useQuery({
-      userId: sessionData ? sessionData.user.id : "no_user",
+      userId: sessionData.user.id,
     });
   return userTopicsData;
 };
@@ -21,7 +20,7 @@ const Home: NextPage = () => {
   const { data: sessionData } = useSession();
   const [isOpen, setisOpen] = useState(false);
 
-  const userTopicsData = getUserTopics(sessionData);
+  const userTopicsData = sessionData ? getUserTopics(sessionData) : [];
 
   const toggle = () => {
     setisOpen(!isOpen);
