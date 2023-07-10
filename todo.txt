@@ -11,6 +11,5 @@
 
 - SEEN topic flow:
     - anonymous users will be redirected to login. 
-    - fix color and display in pt/br
     - hot reload status or page or something
     - need a spinner or something for loading

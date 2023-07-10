@@ -3,6 +3,7 @@ import { useState } from "react";
 import { api } from "~/utils/api";
 import { useSession } from "next-auth/react";
 import { Status } from "@prisma/client";
+import { redirect } from 'next/navigation';
 
 type TopicProgressButtonProps = {
   topicId: string;
@@ -41,7 +42,10 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
         userId: sessionData.user.id,
         status: progress,
       });
-    }
+    }  
+    
+    // ELSE -> Redirect to login
+
     setShowChangeStatus(false);
   };
 
