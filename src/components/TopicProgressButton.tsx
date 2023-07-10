@@ -3,7 +3,6 @@ import { useState } from "react";
 import { api } from "~/utils/api";
 import { useSession } from "next-auth/react";
 import { Status } from "@prisma/client";
-import { redirect } from 'next/navigation';
 
 type TopicProgressButtonProps = {
   topicId: string;

@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { type UserTopic, Status } from "@prisma/client";
 
-type topic = {
+export type topic = {
   id: string;
   title: string;
   body: string;

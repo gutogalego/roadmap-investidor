@@ -1,61 +1,18 @@
 import { type NextPage } from "next";
-import { api } from "~/utils/api";
-import { PageLayout } from "~/components/layout";
-import { useState } from "react";
-import { useSession } from "next-auth/react";
+import { TopicPage } from "~/components/TopicPage";
 import fixtures from "~/data/renda-fixa.json";
 import React from "react";
-import { Topics } from "~/components/Topics";
-import { type Session } from "next-auth";
-
-const getUserTopics = (sessionData: Session | null) => {
-  const { data: userTopicsData, isLoading } =
-    api.userTopic.getTopicsByUserID.useQuery({
-      userId: sessionData?.user.id || "no_user",
-    });
-  return userTopicsData;
-};
 
 const Home: NextPage = () => {
-  const { data: sessionData } = useSession();
-  const [isOpen, setisOpen] = useState(false);
-
-  let userTopicsData = getUserTopics(sessionData);
-
-  if (!sessionData) {
-    userTopicsData = [];
-  }
-
-  const toggle = () => {
-    setisOpen(!isOpen);
-  };
-
   return (
-    <PageLayout>
-      <main>
-        <div className="grid grid-cols-12  flex-col items-center justify-center gap-12 border-b px-4">
-          <div className="col-span-3" />
-          <div className="container relative col-span-6 flex  py-5 sm:py-12">
-            <div className="mb-3 mt-0 sm:mb-4 sm:mt-4">
-              <h3 className="flex text-3xl font-bold tracking-tight text-slate-900">
-                Renda Fixa
-              </h3>
-              <p className="text-sm text-gray-500 sm:text-lg">
-                Topicos para estudo sobre renda fixa.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div className="grid h-screen grid-cols-6 content-start gap-4 bg-gray-50 px-5 pt-4 sm:pt-12">
-          <Topics
-            isOpen={isOpen}
-            toggle={toggle}
-            userTopics={userTopicsData}
-            data={fixtures.data}
-          />
-        </div>
-      </main>
-    </PageLayout>
+    <TopicPage fixturesData={fixtures.data}>
+      <h3 className="flex text-3xl font-bold tracking-tight text-slate-900">
+        Renda Fixa
+      </h3>
+      <p className="text-sm text-gray-500 sm:text-lg">
+        Topicos para estudo sobre renda fixa.
+      </p>
+    </TopicPage>
   );
 };
 
