@@ -3,11 +3,13 @@ import { type ReactNode, useState } from "react";
 import Image from "next/image";
 import React from "react";
 import { type UserTopic, Status } from "@prisma/client";
+import { useTopic } from "~/hooks/useTopic";
 
 export type topic = {
   id: string;
   title: string;
   body: string;
+  status?: Status
 };
 
 type modalProps = {
@@ -27,7 +29,6 @@ type topicsProps = {
 
 type topicProps = {
   topic: topic;
-  progress: Status;
 };
 
 const topicColorClasses: Record<Status, string> = {
@@ -35,21 +36,6 @@ const topicColorClasses: Record<Status, string> = {
   IN_PROGRESS: "bg-purple-300 underline",
   PENDING: "bg-yellow-500 hover:bg-yellow-400",
   SKIP: "bg-teal-800 line-through",
-};
-
-const getTopicProgress = (
-  topicId: string,
-  userTopics?: UserTopic[]
-): Status => {
-  if (userTopics) {
-    for (const userTopic of userTopics) {
-      if (topicId == userTopic.topicId) {
-        return userTopic.status;
-      }
-    }
-  }
-
-  return Status.PENDING;
 };
 
 //use state enabled/disabled triggered by renda fica button
@@ -98,10 +84,17 @@ const Topic = (props: topicProps) => {
     setisOpen(!isOpen);
   };
 
+  const { data, isLoading } = useTopic(topic);
+
+  if (isLoading) {
+    return <></>;
+  }
+  const status: Status = data?.status || Status.PENDING;
+
   return (
     <div className="h-20 w-full ">
       <button
-        className={`flex h-20 w-full max-w-xs flex-col items-center gap-4 rounded-xl ${topicColorClasses[props.progress]} py-7 text-black `}
+        className={`flex h-20 w-full max-w-xs flex-col items-center gap-4 rounded-xl ${topicColorClasses[status]} py-7 text-black `}
         type="button"
         onClick={toggle}
       >
@@ -111,7 +104,7 @@ const Topic = (props: topicProps) => {
         isOpen={isOpen}
         toggle={toggle}
         topicId={topic.id}
-        progress={props.progress}
+        progress={status}
       >
         <div>{topic.body}</div>
       </Modal>
@@ -123,9 +116,7 @@ export const Topics = (props: topicsProps) => {
   const topics = [];
 
   for (const topic of props.data) {
-    const topicProgress = getTopicProgress(topic.id, props.userTopics);
-
-    topics.push(<Topic topic={topic} progress={topicProgress} />);
+    topics.push(<Topic topic={topic} key={topic.id} />);
   }
 
   return <>{...topics}</>;

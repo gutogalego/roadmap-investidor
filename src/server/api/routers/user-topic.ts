@@ -18,12 +18,33 @@ export const userTopicRouter = createTRPCRouter({
       })
     ),
 
+  getUserTopicById: publicProcedure
+    .input(
+      z.object({
+        topicId: z.string().min(1),
+        userId: z.string().min(1),
+      })
+    )
+    .query(async ({ ctx, input }) =>
+      ctx.prisma.userTopic.findFirst({
+        where: {
+          topicId: input.topicId,
+          userId: input.userId,
+        },
+      })
+    ),
+
   create: publicProcedure
     .input(
       z.object({
         topicId: z.string().min(1),
         userId: z.string().min(1),
-        status: z.enum([Status.DONE, Status.IN_PROGRESS, Status.PENDING, Status.SKIP ]),
+        status: z.enum([
+          Status.DONE,
+          Status.IN_PROGRESS,
+          Status.PENDING,
+          Status.SKIP,
+        ]),
       })
     )
     .mutation(async ({ ctx, input }) => {
