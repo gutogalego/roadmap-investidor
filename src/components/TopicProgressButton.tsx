@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import { useState } from "react";
 import { api } from "~/utils/api";
 import { useSession } from "next-auth/react";
 import { Status } from "@prisma/client";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
 
 type TopicProgressButtonProps = {
   topicId: string;
@@ -34,6 +38,9 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
 
   const { mutate, isLoading: isPosting } = api.userTopic.create.useMutation({});
 
+  // eslint-disable-next-line @typescript-eslint/unbound-method
+  const { push } = useRouter();
+
   const handleUpdateResourceProgress = (progress: Status) => {
     if (sessionData) {
       mutate({
@@ -41,8 +48,10 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
         userId: sessionData.user.id,
         status: progress,
       });
-    }  
-    
+    } else {
+      push("/login");
+    }
+
     // ELSE -> Redirect to login
 
     setShowChangeStatus(false);
