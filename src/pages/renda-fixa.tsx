@@ -8,10 +8,10 @@ import React from "react";
 import { Topics } from "~/components/Topics";
 import { type Session } from "next-auth";
 
-const getUserTopics = (sessionData: Session) => {
+const getUserTopics = (sessionData: Session | null) => {
   const { data: userTopicsData, isLoading } =
     api.userTopic.getTopicsByUserID.useQuery({
-      userId: sessionData.user.id,
+      userId: sessionData?.user.id || "no_user",
     });
   return userTopicsData;
 };
@@ -20,7 +20,11 @@ const Home: NextPage = () => {
   const { data: sessionData } = useSession();
   const [isOpen, setisOpen] = useState(false);
 
-  const userTopicsData = sessionData ? getUserTopics(sessionData) : [];
+  let userTopicsData = getUserTopics(sessionData);
+
+  if (!sessionData) {
+    userTopicsData = [];
+  }
 
   const toggle = () => {
     setisOpen(!isOpen);
