@@ -97,7 +97,6 @@ const Topic = (props: topicProps) => {
   const toggle = () => {
     setisOpen(!isOpen);
   };
-  console.log("TOPIC PROGRESS: ", props.progress)
 
   return (
     <div className="h-20 w-full ">
