@@ -38,6 +38,13 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
 
   const { mutate, isLoading: isPosting } = api.userTopic.create.useMutation({});
 
+  const [statusColorClass, setStatusColorClass] = useState(
+    statusColors[props.progress]
+  );
+  const [currentStatus, setCurrentStatus] = useState(
+    translateProgress(props.progress)
+  );
+
   // eslint-disable-next-line @typescript-eslint/unbound-method
   const { push } = useRouter();
 
@@ -48,6 +55,8 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
         userId: sessionData.user.id,
         status: progress,
       });
+      setStatusColorClass(statusColors[progress]);
+      setCurrentStatus(translateProgress(progress));
     } else {
       push("/login");
     }
@@ -62,14 +71,10 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
       <span className="inline-flex cursor-default items-center  p-1 px-2 text-sm text-black">
         <span className="flex h-2 w-2">
           <span
-            className={`relative inline-flex h-2 w-2 rounded-full ${
-              statusColors[props.progress]
-            }`}
+            className={`relative inline-flex h-2 w-2 rounded-full ${statusColorClass}`}
           ></span>
         </span>
-        <span className="ml-2 capitalize">
-          {translateProgress(props.progress)}
-        </span>
+        <span className="ml-2 capitalize">{currentStatus}</span>
       </span>
       <button
         className="inline-flex cursor-pointer items-center rounded-br-md rounded-tr-md border-l border-l-gray-300 bg-gray-100 p-1 px-2 text-sm text-black hover:bg-gray-200"
