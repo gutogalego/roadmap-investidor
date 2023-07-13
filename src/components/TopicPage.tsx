@@ -1,20 +1,10 @@
 import type { ReactNode } from "react";
-import { useSession } from "next-auth/react";
-import { api } from "~/utils/api";
 import { PageLayout } from "~/components/layout";
 import { useState } from "react";
 import React from "react";
 import { Topics } from "~/components/Topics";
-import { type Session } from "next-auth";
 import { type topic } from "~/components/Topics";
-
-const getUserTopics = (sessionData: Session | null) => {
-  const { data: userTopicsData, isLoading } =
-    api.userTopic.getTopicsByUserID.useQuery({
-      userId: sessionData?.user.id || "no_user",
-    });
-  return userTopicsData;
-};
+import { useTopics } from "~/hooks/useTopics";
 
 type TopicPageProps = {
   fixturesData: topic[];
@@ -22,14 +12,9 @@ type TopicPageProps = {
 };
 
 export const TopicPage = (props: TopicPageProps) => {
-  const { data: sessionData } = useSession();
   const [isOpen, setisOpen] = useState(false);
 
-  let userTopicsData = getUserTopics(sessionData);
-
-  if (!sessionData) {
-    userTopicsData = [];
-  }
+  const { data: userTopicsData } = useTopics();
 
   const toggle = () => {
     setisOpen(!isOpen);
