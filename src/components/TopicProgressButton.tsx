@@ -35,14 +35,12 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
 
   const [showChangeStatus, setShowChangeStatus] = useState(false);
 
-  const { mutate, isLoading: isPosting } = api.userTopic.create.useMutation({});
-
-  const [statusColorClass, setStatusColorClass] = useState(
-    statusColors[props.progress]
-  );
-  const [currentStatus, setCurrentStatus] = useState(
-    translateProgress(props.progress)
-  );
+  const utils = api.useContext();
+  const { mutate, isLoading: isPosting } = api.userTopic.create.useMutation({
+    onSuccess: () => {
+      return utils.userTopic.getUserTopicById.invalidate({ topicId: topicId });
+    }
+  });
 
   // eslint-disable-next-line @typescript-eslint/unbound-method
   const { push } = useRouter();
@@ -54,8 +52,6 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
         userId: sessionData.user.id,
         status: progress,
       });
-      setStatusColorClass(statusColors[progress]);
-      setCurrentStatus(translateProgress(progress));
     } else {
       push("/login");
     }
@@ -70,10 +66,11 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
       <span className="inline-flex cursor-default items-center  p-1 px-2 text-sm text-black">
         <span className="flex h-2 w-2">
           <span
-            className={`relative inline-flex h-2 w-2 rounded-full ${statusColorClass}`}
+            className={`relative inline-flex h-2 w-2 rounded-full ${statusColors[props.progress]
+              }`}
           ></span>
         </span>
-        <span className="ml-2 capitalize">{currentStatus}</span>
+        <span className="ml-2 capitalize">{translateProgress(props.progress)}</span>
       </span>
       <button
         className="inline-flex cursor-pointer items-center rounded-br-md rounded-tr-md border-l border-l-gray-300 bg-gray-100 p-1 px-2 text-sm text-black hover:bg-gray-200"
@@ -96,9 +93,8 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
           >
             <span>
               <span
-                className={`mr-2 inline-block h-2 w-2 rounded-full ${
-                  statusColors[Status.DONE]
-                }`}
+                className={`mr-2 inline-block h-2 w-2 rounded-full ${statusColors[Status.DONE]
+                  }`}
               ></span>
               {translateProgress(Status.DONE)}
             </span>
@@ -110,9 +106,8 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
           >
             <span>
               <span
-                className={`mr-2 inline-block h-2 w-2 rounded-full ${
-                  statusColors[Status.IN_PROGRESS]
-                }`}
+                className={`mr-2 inline-block h-2 w-2 rounded-full ${statusColors[Status.IN_PROGRESS]
+                  }`}
               ></span>
               {translateProgress(Status.IN_PROGRESS)}
             </span>
@@ -124,9 +119,8 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
           >
             <span>
               <span
-                className={`mr-2 inline-block h-2 w-2 rounded-full ${
-                  statusColors[Status.PENDING]
-                }`}
+                className={`mr-2 inline-block h-2 w-2 rounded-full ${statusColors[Status.PENDING]
+                  }`}
               ></span>
               Resetar
             </span>
@@ -138,9 +132,8 @@ export const TopicProgressButton = (props: TopicProgressButtonProps) => {
           >
             <span>
               <span
-                className={`mr-2 inline-block h-2 w-2 rounded-full ${
-                  statusColors[Status.SKIP]
-                }`}
+                className={`mr-2 inline-block h-2 w-2 rounded-full ${statusColors[Status.SKIP]
+                  }`}
               ></span>
               {translateProgress(Status.SKIP)}
             </span>
