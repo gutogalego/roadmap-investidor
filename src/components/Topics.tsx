@@ -3,6 +3,7 @@ import { type ReactNode, useState } from "react";
 import Image from "next/image";
 import React from "react";
 import { type UserTopic, Status } from "@prisma/client";
+import ReactMarkdown from "react-markdown";
 import { useTopic } from "~/hooks/useTopic";
 
 export type topic = {
@@ -42,7 +43,7 @@ const topicColorClasses: Record<Status, string> = {
 const Modal = (props: modalProps) => {
   const modal = (
     <div
-      className="fixed top-0 left-0 h-full w-full items-center bg-slate-900 bg-opacity-70"
+      className="fixed left-0 top-0 h-full w-full items-center bg-slate-900 bg-opacity-70"
       onClick={props.toggle}
     >
       <div
@@ -75,8 +76,6 @@ const Modal = (props: modalProps) => {
   return <>{props.isOpen && modal}</>;
 };
 
-
-
 const Topic = (props: topicProps) => {
   const topic = props.topic;
   const [isOpen, setisOpen] = useState(false);
@@ -106,7 +105,9 @@ const Topic = (props: topicProps) => {
         topicId={topic.id}
         progress={status}
       >
-        <div>{topic.body}</div>
+        <div className="prose prose-quoteless prose-h1:mb-2.5 prose-h1:mt-7 prose-h2:mb-3 prose-h2:mt-0 prose-h3:mb-[5px] prose-h3:mt-[10px] prose-p:mb-2 prose-p:mt-0 prose-blockquote:font-normal prose-blockquote:not-italic prose-blockquote:text-gray-700 prose-li:m-0 prose-li:mb-0.5">
+          <ReactMarkdown>{topic.body}</ReactMarkdown>
+        </div>
       </Modal>
     </div>
   );
