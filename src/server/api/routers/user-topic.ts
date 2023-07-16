@@ -9,14 +9,16 @@ export const userTopicRouter = createTRPCRouter({
         userId: z.string(),
       })
     )
-    .query(async ({ ctx, input }) =>
-      ctx.prisma.userTopic.findMany({
+    .query(async ({ ctx, input }) => {
+      if (input.userId == "no_user") return [];
+      const topics = ctx.prisma.userTopic.findMany({
         where: {
           userId: input.userId,
         },
         take: 200,
-      })
-    ),
+      });
+      return topics;
+    }),
 
   getUserTopicById: publicProcedure
     .input(
