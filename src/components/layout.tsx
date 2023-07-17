@@ -33,7 +33,7 @@ const Navbar = () => {
       <nav className="flex justify-between px-3 sm:grid-cols-3 md:px-64 ">
         <Link href="/" className="pl-10">
           <Image
-            src={"/money-white.svg"}
+            src={"/finance-svgrepo-com.svg"}
             alt="Home"
             className="flex h-8 w-8 items-center fill-white text-lg font-medium text-white"
             width={0}

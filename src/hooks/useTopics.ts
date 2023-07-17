@@ -3,12 +3,7 @@ import { api } from "~/utils/api";
 
 export function useTopics() {
   const { data: sessionData } = useSession();
-  if (sessionData) {
-    return api.userTopic.getTopicsByUserID.useQuery({
-      userId: sessionData.user.id,
-    });
-  }
-  return {
-    data: [],
-  };
+  return api.userTopic.getTopicsByUserID.useQuery({
+    userId: sessionData?.user.id || "no_user",
+  });
 }
