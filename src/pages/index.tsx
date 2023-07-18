@@ -15,14 +15,26 @@ const Home: NextPage = () => {
               className="flex max-w-xs flex-col items-center gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
               href="/renda-fixa"
             >
-              <h3 className="text-2xl font-bold ">Renda Fixa</h3>
+              <h3 className="text-2xl font-bold ">
+                Introdução aos Investimentos
+              </h3>
+            </Link>
+            <Link
+              className="flex max-w-xs flex-col items-center gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
+              href="/renda-fixa"
+            >
+              <h3 className="text-2xl font-bold ">
+                Investimentos de Renda Fixa
+              </h3>
             </Link>
 
             <Link
               className="flex max-w-xs flex-col items-center gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
               href="/renda-variavel"
             >
-              <h3 className="mx-auto text-2xl font-bold">Renda Variavel</h3>
+              <h3 className="mx-auto text-2xl font-bold">
+                Investimentos de Renda Variavel
+              </h3>
             </Link>
 
             <Link
@@ -30,7 +42,48 @@ const Home: NextPage = () => {
               href="/renda-fixa"
             >
               <h3 className="whitespace-normal text-2xl font-bold">
-                Criptomoedas
+                Fundos de Investimento
+              </h3>
+            </Link>
+
+            <Link
+              className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
+              href="/renda-fixa"
+            >
+              <h3 className="whitespace-normal text-2xl font-bold">
+                Investimentos Imobiliários
+              </h3>
+            </Link>
+            <Link
+              className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
+              href="/renda-fixa"
+            >
+              <h3 className="whitespace-normal text-2xl font-bold">
+                Investimentos no Exterior
+              </h3>
+            </Link>
+            <Link
+              className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
+              href="/renda-fixa"
+            >
+              <h3 className="whitespace-normal text-2xl font-bold">
+                Planejamento Financeiro
+              </h3>
+            </Link>
+            <Link
+              className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
+              href="/renda-fixa"
+            >
+              <h3 className="whitespace-normal text-2xl font-bold">
+                Psicologia dos Investimentos
+              </h3>
+            </Link>
+            <Link
+              className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
+              href="/renda-fixa"
+            >
+              <h3 className="whitespace-normal text-2xl font-bold">
+                Aspectos Legais e Tributários
               </h3>
             </Link>
           </div>
