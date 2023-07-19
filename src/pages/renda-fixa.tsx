@@ -17,6 +17,7 @@ const Home: NextPage<{ data: topic[] }> = ({ data }) => {
   return (
     <>
       <Head>
+        <title>Roadmap Investidor - Renda Fixa</title>
         <meta
           name="description"
           content="Topicos sobre renda fixa para estudos."
