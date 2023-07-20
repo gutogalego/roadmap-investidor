@@ -93,11 +93,11 @@ const Topic = (props: topicProps) => {
   return (
     <div className="h-20 w-full ">
       <button
-        className={`flex h-20 w-full max-w-xs flex-col items-center gap-4 rounded-xl ${topicColorClasses[status]} py-7 text-black `}
+        className={`flex h-20 w-full max-w-xs flex-col justify-center rounded-xl py-7 text-black ${topicColorClasses[status]}`}
         type="button"
         onClick={toggle}
       >
-        <h5 className="text-xl font-bold ">{topic.title}</h5>
+        <h5 className="self-center text-xl font-bold">{topic.title}</h5>
       </button>
       <Modal
         isOpen={isOpen}
