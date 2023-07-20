@@ -2,5 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+.mkdown a {
+  @apply text-blue-600 font-bold;
+}
 
+.mkdown ul {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+}
 
+.mkdown ol {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+}
+
+.mkdown p {
+    margin-bottom: 1em;
+  }
