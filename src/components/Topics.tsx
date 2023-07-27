@@ -106,7 +106,7 @@ const Topic = (props: topicProps) => {
         progress={status}
       >
         <div className="mkdown mt-3">
-          <ReactMarkdown>{topic.body}</ReactMarkdown>
+          <ReactMarkdown linkTarget="_blank">{topic.body}</ReactMarkdown>
         </div>
       </Modal>
     </div>

@@ -1,4 +1,5 @@
 - FIX LAYOUT ON MOBILE AS IT IS ABSOLUTE HORSESHIT
+- click opens new tab tailwind
 
 - https://www.reddit.com/r/investimentos/wiki/index/#wiki_onde_buscar_conhecimento_fora_do_sub.3F
 - link on footnotes good, high quality websites for research
