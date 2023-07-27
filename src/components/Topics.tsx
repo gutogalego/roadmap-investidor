@@ -43,12 +43,12 @@ const topicColorClasses: Record<Status, string> = {
 const Modal = (props: modalProps) => {
   const modal = (
     <div
-      className="fixed left-0 top-0 h-full w-full items-center bg-slate-900 bg-opacity-70"
+      className="fixed flex left-0 top-0 h-full w-full items-center bg-slate-900 bg-opacity-70 justify-center"
       onClick={props.toggle}
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className="float-right block h-full w-2/5 bg-slate-50 p-4"
+        className=" block h-full w-1/2 bg-slate-50 p-4"
       >
         <button
           type="button"
