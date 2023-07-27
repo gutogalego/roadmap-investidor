@@ -48,7 +48,7 @@ const Modal = (props: modalProps) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className=" block h-full w-1/2 bg-slate-50 p-4"
+        className=" block h-full md:w-1/2 bg-slate-50 p-4 overflow-y-auto"
       >
         <button
           type="button"
