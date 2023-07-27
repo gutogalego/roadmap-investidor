@@ -3,7 +3,6 @@ import { TopicPage } from "~/components/TopicPage";
 import fixtures from "~/data/renda-variavel.json";
 import React from "react";
 import { type topic } from "~/components/Topics";
-import Head from "next/head";
 
 export const getStaticProps: GetStaticProps = () => {
   return {

@@ -1,0 +1,99 @@
+{
+    "data": [
+      {
+        "id": "3000",
+        "title": "Renda Fixa",
+        "body": "**Guia Básico sobre Renda Fixa para Investidores no Brasil**\n\nA Renda Fixa é uma categoria de investimentos muito popular no Brasil, conhecida pela sua segurança e previsibilidade de retornos. Nesse tipo de investimento, o investidor empresta dinheiro para instituições financeiras, empresas ou o governo, que emitem títulos de dívida em troca desse empréstimo. A principal característica da Renda Fixa é que a forma de remuneração é conhecida previamente, seja através de juros pré-determinados ou atrelados a algum índice. Além disso, a Renda Fixa é considerada um investimento de baixo risco, especialmente quando comparado com a Renda Variável, como ações.\n\nExistem diversos tipos de títulos de Renda Fixa disponíveis no mercado brasileiro, cada um com suas características e prazos distintos. Alguns dos principais são os Títulos Públicos, emitidos pelo governo federal através do Tesouro Nacional, e os CDBs (Certificados de Depósito Bancário), emitidos por bancos. Outras opções incluem as LCIs (Letras de Crédito Imobiliário), LCAs (Letras de Crédito do Agronegócio), Debêntures e Fundos de Renda Fixa. Cada um desses investimentos possui suas vantagens e desvantagens, e é importante que o investidor entenda suas particularidades antes de fazer suas escolhas.\n\n**Onde aprender mais:**\n\n- **Artigos:**\n  - [Guia Completo sobre Renda Fixa](https://www.infomoney.com.br/guias/renda-fixa/)\n  - [Entendendo os principais tipos de investimentos em Renda Fixa](https://exame.com/invest/tipos-de-investimentos-em-renda-fixa/)\n\n- **Livros:**\n  - Renda Fixa Descomplicada - Autor: Pedro Lopes\n  - Aprenda a Investir em Renda Fixa - Autor: William Eid Junior"
+      },
+      {
+        "id": "3001",
+        "title": "Renda Variável",
+        "body": "**Guia Básico sobre Renda Variável para Investidores no Brasil**\n\nA Renda Variável é uma categoria de investimentos que engloba ativos cujo retorno não pode ser previamente determinado. Diferentemente da Renda Fixa, onde os rendimentos são conhecidos no momento da aplicação, na Renda Variável o investidor está exposto a oscilações de preço e pode obter retornos maiores, mas também está sujeito a riscos mais elevados. Os principais ativos de Renda Variável são as ações, que representam uma fração do capital de uma empresa e são negociadas na bolsa de valores, e os Fundos de Investimento em Ações.\n\nInvestir em Renda Variável requer uma boa dose de conhecimento e análise, pois os preços das ações podem variar significativamente de acordo com fatores econômicos, políticos e até mesmo eventos específicos de cada empresa. Além disso, é importante compreender os princípios da diversificação, para evitar colocar todo o capital em uma única empresa ou setor.\n\n**Onde aprender mais:**\n\n- **Artigos:**\n  - [Introdução ao Mercado de Ações](https://www.infomoney.com.br/guias/mercado-de-acoes/)\n  - [Renda Variável: Conheça os principais investimentos](https://exame.com/invest/renda-variavel-conheca-os-principais-investimentos/)\n\n- **Livros:**\n  - Ações - Quais comprar e quando comprar - Autor: Eduardo Matsura\n  - O Investidor Inteligente - Autor: Benjamin Graham"
+      },
+      {
+        "id": "3002",
+        "title": "Diversificação",
+        "body": "Texto sobre Diversificação"
+      },
+      {
+        "id": "3003",
+        "title": "Perfil de Investidor",
+        "body": "Texto sobre Perfil de Investidor"
+      },
+      {
+        "id": "3004",
+        "title": "Horizonte de Investimento",
+        "body": "Texto sobre Horizonte de Investimento"
+      },
+      {
+        "id": "3005",
+        "title": "Liquidez",
+        "body": "Texto sobre Liquidez"
+      },
+      {
+        "id": "3006",
+        "title": "Rentabilidade",
+        "body": "Texto sobre Rentabilidade"
+      },
+      {
+        "id": "3007",
+        "title": "Risco",
+        "body": "Texto sobre Risco"
+      },
+      {
+        "id": "3009",
+        "title": "Análise Fundamentalista",
+        "body": "Texto sobre Análise Fundamentalista"
+      },
+      {
+        "id": "3010",
+        "title": "Análise Técnica",
+        "body": "Texto sobre Análise Técnica"
+      },
+      {
+        "id": "3014",
+        "title": "Mercado Primário e Secundário",
+        "body": "Texto sobre Mercado Primário e Secundário"
+      },
+      {
+        "id": "3015",
+        "title": "Fundos de Investimento",
+        "body": "Texto sobre Fundos de Investimento"
+      },
+      {
+        "id": "3016",
+        "title": "Alavancagem",
+        "body": "Texto sobre Alavancagem"
+      },
+      {
+        "id": "3017",
+        "title": "Hedge",
+        "body": "Texto sobre Hedge"
+      },
+      {
+        "id": "3018",
+        "title": "Corretoras de Valores",
+        "body": "Texto sobre Corretoras de Valores"
+      },
+      {
+        "id": "3019",
+        "title": "Imposto de Renda em Investimentos",
+        "body": "Texto sobre Imposto de Renda em Investimentos"
+      },
+      {
+        "id": "3020",
+        "title": "Psicologia dos Investimentos",
+        "body": "Texto sobre Psicologia dos Investimentos"
+      },
+      {
+        "id": "3022",
+        "title": "Investimentos Sociais e Sustentáveis",
+        "body": "Texto sobre Investimentos Sociais e Sustentáveis"
+      },
+      {
+        "id": "3023",
+        "title": "Investimentos no Exterior",
+        "body": "Texto sobre Investimentos no Exterior"
+      }
+    ]
+  }
