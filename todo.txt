@@ -1,7 +1,5 @@
 - vercel deal with static images
 
-- do bento boxes for topics?
-
 - track progress
 
 - https://www.reddit.com/r/investimentos/wiki/index/#wiki_onde_buscar_conhecimento_fora_do_sub.3F

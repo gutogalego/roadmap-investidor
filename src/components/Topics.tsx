@@ -105,7 +105,7 @@ const Topic = (props: topicProps) => {
         topicId={topic.id}
         progress={status}
       >
-        <div className="mkdown">
+        <div className="mkdown mt-3">
           <ReactMarkdown>{topic.body}</ReactMarkdown>
         </div>
       </Modal>
