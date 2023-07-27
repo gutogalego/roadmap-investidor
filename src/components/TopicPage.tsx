@@ -48,7 +48,7 @@ export const TopicPage = (props: TopicPageProps) => {
             </div>
           </div>
         </div>
-        <div className="grid h-screen grid-cols-6 content-start gap-4 bg-gray-50 px-5 pt-4 sm:pt-12">
+        <div className="grid h-screen sm:grid-cols-3 md:grid-cols-6  content-start gap-4 bg-gray-50 px-5 pt-4 sm:pt-12">
           <Topics
             isOpen={isOpen}
             toggle={toggle}
