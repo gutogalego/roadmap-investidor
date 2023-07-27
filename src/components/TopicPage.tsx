@@ -30,7 +30,7 @@ export const TopicPage = (props: TopicPageProps) => {
         <title>Roadmap Investidor - {props.headTitle}</title>
         <meta
           name="description"
-          content="Topicos sobre renda fixa para estudos."
+          content={props.headDescription}
         />
       </Head>
       <main>
@@ -39,10 +39,10 @@ export const TopicPage = (props: TopicPageProps) => {
           <div className="container relative col-span-6 flex  py-5 sm:py-12">
             <div className="mb-3 mt-0 sm:mb-4 sm:mt-4">
               <h3 className="flex text-3xl font-bold tracking-tight text-slate-900">
-                Renda Fixa
+                {props.title}
               </h3>
               <p className="text-sm text-gray-500 sm:text-lg">
-                Topicos para estudo sobre renda fixa.
+                {props.description}
               </p>
               {props.children}
             </div>
