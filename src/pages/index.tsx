@@ -39,7 +39,7 @@ const Home: NextPage = () => {
 
             <Link
               className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
-              href="/renda-fixa"
+              href="/fundos"
             >
               <h3 className="whitespace-normal text-2xl font-bold">
                 Fundos de Investimento
@@ -48,15 +48,15 @@ const Home: NextPage = () => {
 
             <Link
               className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
-              href="/renda-fixa"
+              href="/fiis"
             >
               <h3 className="whitespace-normal text-2xl font-bold">
-                Investimentos Imobiliários
+                FIIs
               </h3>
             </Link>
             <Link
               className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
-              href="/renda-fixa"
+              href="/exterior"
             >
               <h3 className="whitespace-normal text-2xl font-bold">
                 Investimentos no Exterior
@@ -64,7 +64,7 @@ const Home: NextPage = () => {
             </Link>
             <Link
               className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
-              href="/renda-fixa"
+              href="/planejamento-financeiro"
             >
               <h3 className="whitespace-normal text-2xl font-bold">
                 Planejamento Financeiro
@@ -72,7 +72,7 @@ const Home: NextPage = () => {
             </Link>
             <Link
               className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
-              href="/renda-fixa"
+              href="/psicologia"
             >
               <h3 className="whitespace-normal text-2xl font-bold">
                 Psicologia dos Investimentos
@@ -80,7 +80,7 @@ const Home: NextPage = () => {
             </Link>
             <Link
               className="flex max-w-xs flex-col flex-nowrap gap-4 rounded-xl bg-white/10 p-10 text-white hover:bg-white/20"
-              href="/renda-fixa"
+              href="/aspectos-legais"
             >
               <h3 className="whitespace-normal text-2xl font-bold">
                 Aspectos Legais e Tributários

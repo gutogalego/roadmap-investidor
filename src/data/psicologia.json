@@ -1,0 +1,30 @@
+{
+    "data": [
+      {
+        "id": "8000",
+        "title": "Emoções e Tomada de Decisão",
+        "body": "This is a sample text for Emoções e Tomada de Decisão."
+      },
+      {
+        "id": "8001",
+        "title": "Viéses Cognitivos",
+        "body": "This is a sample text for Viéses Cognitivos."
+      },
+      {
+        "id": "8002",
+        "title": "Gestão de Risco Emocional",
+        "body": "This is a sample text for Gestão de Risco Emocional."
+      },
+      {
+        "id": "8003",
+        "title": "Efeito Manada (Herd Behavior)",
+        "body": "This is a sample text for Efeito Manada (Herd Behavior)."
+      },
+      {
+        "id": "8004",
+        "title": "Aversão à Perda",
+        "body": "This is a sample text for Aversão à Perda."
+      }
+    ]
+  }
+  
