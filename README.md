@@ -31,6 +31,10 @@ npx prisma db push
 ```
 to migrate the db
 
+# Contributing
+
+Fork the repo, hack away, submit a PR. We're chill.
+
 
 # Do's and dont's
 
