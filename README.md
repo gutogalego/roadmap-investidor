@@ -1,28 +1,39 @@
-# Create T3 App
+# .env
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+You'll need a .env for the repo to work locally. here's an example below:
 
-## What's next? How do I make an app with this?
+```
+DATABASE_URL='mysql://xxxxx@aws.connect.psdb.cloud/roadmap-investidor?sslaccept=strict'
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="RANDOM_STR"
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+GOOGLE_CLIENT_ID='xxxxx.apps.googleusercontent.com'
+GOOGLE_CLIENT_SECRET='xxxxx'
+```
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
+login only works with Google. Features related to login and track progress will require a google_client_id, and a DB. But otherwise, it'll work without it.
+
+
+# Installation
+
+```
+npm i
+npm run dev
+```
+
+if you're doing logged-in features, we're using Prisma.
 - [Prisma](https://prisma.io)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
 
-## Learn More
+run 
+```
+npx prisma db push
+```
+to migrate the db
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+# Do's and dont's
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+- Feel free to rewrite any guide, change the links, change the recommended books, add topics, etc. This is meant to be community driven
 
-## How do I deploy this?
-
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- Don't self promote.
