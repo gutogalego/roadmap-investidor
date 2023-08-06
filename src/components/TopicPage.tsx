@@ -33,10 +33,10 @@ export const TopicPage = (props: TopicPageProps) => {
           content={props.headDescription}
         />
       </Head>
-      <main>
-        <div className="grid grid-cols-12  flex-col items-center justify-center gap-12 border-b px-4">
+      <main className="bg-gray-50">
+        <div className="bg-white grid grid-cols-12 flex-col items-center justify-center gap-12 border-b px-4">
           <div className="col-span-3" />
-          <div className="container relative col-span-6 flex  py-5 sm:py-12">
+          <div className="container relative col-span-6 flex py-5 sm:py-12">
             <div className="mb-3 mt-0 sm:mb-4 sm:mt-4">
               <h3 className="flex text-3xl font-bold tracking-tight text-slate-900">
                 {props.title}
@@ -48,7 +48,7 @@ export const TopicPage = (props: TopicPageProps) => {
             </div>
           </div>
         </div>
-        <div className="grid h-screen sm:grid-cols-3 md:grid-cols-6  content-start gap-4 bg-gray-50 px-5 pt-4 sm:pt-12">
+        <div className="container mx-auto w-fit grid h-screen sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 content-start gap-4 px-5 pt-4 sm:pt-12">
           <Topics
             isOpen={isOpen}
             toggle={toggle}

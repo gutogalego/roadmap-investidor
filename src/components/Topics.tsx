@@ -48,7 +48,7 @@ const Modal = (props: modalProps) => {
     >
       <div
         onClick={(e) => e.stopPropagation()}
-        className=" block h-full md:w-1/2 bg-slate-50 p-4 overflow-y-auto"
+        className="block h-full w-fit bg-slate-50 p-4 lg:p-8 xl:px-12 overflow-y-auto"
       >
         <button
           type="button"
@@ -91,13 +91,13 @@ const Topic = (props: topicProps) => {
   const status: Status = data?.status || Status.PENDING;
 
   return (
-    <div className="h-20 w-full ">
+    <div className="flex h-full justify-items-stretch">
       <button
-        className={`flex h-20 w-full max-w-xs flex-col justify-center rounded-xl py-7 text-black ${topicColorClasses[status]}`}
+        className={`w-full rounded-xl px-3 py-6 md:py-8 md:px-4 text-black ${topicColorClasses[status]}`}
         type="button"
         onClick={toggle}
       >
-        <h5 className="self-center text-xl font-bold">{topic.title}</h5>
+        <h5 className="self-center -tracking-[0.01em] text-base xl:text-lg font-bold">{topic.title}</h5>
       </button>
       <Modal
         isOpen={isOpen}
@@ -105,7 +105,7 @@ const Topic = (props: topicProps) => {
         topicId={topic.id}
         progress={status}
       >
-        <div className="mkdown mt-3">
+        <div className="mkdown mt-3 max-w-prose">
           <ReactMarkdown linkTarget="_blank">{topic.body}</ReactMarkdown>
         </div>
       </Modal>
