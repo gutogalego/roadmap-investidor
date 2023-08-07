@@ -1,6 +1,6 @@
 import { type NextPage } from "next";
 import { PageLayout } from "~/components/layout";
-import CardLink from "~/components/CardLink";
+import TopicPageLink from "~/components/TopicPageLink";
 
 const Home: NextPage = () => {
   return (
@@ -11,33 +11,33 @@ const Home: NextPage = () => {
             Roadmap para <span className="text-indigo-300">INVESTIDORES</span>
           </h1>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 md:gap-4">
-            <CardLink
+            <TopicPageLink
               link="/intro"
-            >Introdução aos Investimentos</CardLink>
-            <CardLink
+            >Introdução aos Investimentos</TopicPageLink>
+            <TopicPageLink
               link="/renda-fixa"
-            >Investimentos de Renda Fixa</CardLink>
-            <CardLink
+            >Investimentos de Renda Fixa</TopicPageLink>
+            <TopicPageLink
               link="/renda-variavel"
-            >Investimentos de Renda Variavel</CardLink>
-            <CardLink
+            >Investimentos de Renda Variavel</TopicPageLink>
+            <TopicPageLink
               link="/fundos"
-            >Fundos de Investimento</CardLink>
-            <CardLink
+            >Fundos de Investimento</TopicPageLink>
+            <TopicPageLink
               link="/fiis"
-            >FIIs</CardLink>
-            <CardLink
+            >FIIs</TopicPageLink>
+            <TopicPageLink
               link="/exterior"
-            >Investimentos no Exterior</CardLink>
-            <CardLink
+            >Investimentos no Exterior</TopicPageLink>
+            <TopicPageLink
               link="/planejamento-financeiro"
-            >Planejamento Financeiro</CardLink>
-            <CardLink
+            >Planejamento Financeiro</TopicPageLink>
+            <TopicPageLink
               link="/psicologia"
-            >Psicologia dos Investimentos</CardLink>
-            <CardLink
+            >Psicologia dos Investimentos</TopicPageLink>
+            <TopicPageLink
               link="/aspectos-legais"
-            >Aspectos Legais e Tributários</CardLink>
+            >Aspectos Legais e Tributários</TopicPageLink>
           </div>
         </div>
       </main>
