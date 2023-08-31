@@ -41,7 +41,18 @@ const Navbar = () => {
           />
         </Link>
 
-        <LoginComponent />
+        <div className="flex space-x-5 px-2">
+          <LoginComponent />
+          <Link href="https://github.com/gutogalego/roadmap-investidor" target="_blank">
+            <Image
+              src={"/github.svg"}
+              alt="Github"
+              className="flex h-8 w-8 items-center fill-white text-lg font-medium text-white"
+              width={0}
+              height={0}
+            />
+          </Link>
+        </div>
       </nav>
     </header>
   );
